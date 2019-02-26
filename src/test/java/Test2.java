@@ -1,33 +1,12 @@
-import io.github.bonigarcia.wdm.WebDriverManager;
-import org.junit.After;
-import org.junit.Before;
 import org.junit.Test;
 import org.openqa.selenium.By;
-import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
-import org.openqa.selenium.chrome.ChromeDriver;
-import org.openqa.selenium.chrome.ChromeOptions;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.Select;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
 
-public class Test2 {
-    WebDriver driver;
-
-    @Before
-    public void setUp(){
-        WebDriverManager.chromedriver().setup();
-        ChromeOptions options=new ChromeOptions();
-        options.addArguments("start-maximized");
-        driver=new ChromeDriver(options);
-        driver.get("http://localhost/litecart/");
-
-    }
-    @After
-    public void teardown(){
-        driver.quit();
-    }
+public class Test2 extends BeforeAfterTest2{
 
     @Test
     public void test(){
