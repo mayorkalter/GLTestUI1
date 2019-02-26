@@ -1,6 +1,5 @@
 import io.github.bonigarcia.wdm.WebDriverManager;
 import org.junit.After;
-import org.junit.Assert;
 import org.junit.Before;
 import org.junit.Test;
 import org.openqa.selenium.By;
@@ -25,8 +24,6 @@ public class Test1 {
         driver=new ChromeDriver(options);
         WebDriverWait wait = new WebDriverWait(driver, 10);
         driver.get("http://localhost/litecart/admin/");
-
-
         wait.until(ExpectedConditions.visibilityOfElementLocated(By.cssSelector("input[type='text']")));
         WebElement login = driver.findElement(By.cssSelector("input[type='text']"));
         WebElement password = driver.findElement(By.cssSelector("input[type='password']"));
@@ -34,6 +31,7 @@ public class Test1 {
         login.sendKeys("admin");
         password.sendKeys("admin");
         enter.click();
+        wait.until(ExpectedConditions.visibilityOfElementLocated(By.cssSelector("div.logotype")));
 
 
     }
@@ -44,12 +42,8 @@ public class Test1 {
 
     @Test
     public void test(){
-
-
         WebDriverWait wait = new WebDriverWait(driver, 10);
-        wait.until(ExpectedConditions.visibilityOfElementLocated(By.cssSelector("div.logotype")));
         List<WebElement> list = driver.findElements(By.cssSelector("span.name"));
-
         for (int i=1; i<=list.size(); i++){
             WebElement element = driver.findElement(By.cssSelector("li#app-:nth-child("+i+") a"));
             element.click();

@@ -1,6 +1,5 @@
 import io.github.bonigarcia.wdm.WebDriverManager;
 import org.junit.After;
-import org.junit.Assert;
 import org.junit.Before;
 import org.junit.Test;
 import org.openqa.selenium.By;
@@ -14,7 +13,6 @@ import org.openqa.selenium.support.ui.WebDriverWait;
 
 
 public class Test2 {
-
     WebDriver driver;
 
     @Before
@@ -33,8 +31,6 @@ public class Test2 {
 
     @Test
     public void test(){
-
-
         WebDriverWait wait = new WebDriverWait(driver, 10);
         WebElement element;
         for (int i=0; i<3; i++) {
@@ -42,15 +38,12 @@ public class Test2 {
             element.click();
             wait.until(ExpectedConditions.visibilityOfElementLocated(By.cssSelector("li#rslides1_s0")));
             element = driver.findElement(By.cssSelector("a[title='Yellow Duck']"));
-
             element.click();
             wait.until(ExpectedConditions.visibilityOfElementLocated(By.cssSelector("select[required='required']")));
             element = driver.findElement(By.cssSelector("select[required='required']"));
             element.click();
-
             Select select = new Select(driver.findElements(By.cssSelector("select[required='required']")).get(0));
             select.selectByVisibleText("Small");
-
             element = driver.findElement(By.cssSelector("td.quantity button[type='submit']"));
             element.click();
             String value=(i+1)+"";
@@ -66,13 +59,11 @@ public class Test2 {
             element.sendKeys(value);
             element = driver.findElement(By.cssSelector("button[name='update_cart_item']"));
             element.click();
-
             wait.until(ExpectedConditions.attributeContains(By.cssSelector("table[class='dataTable rounded-corners'] tbody tr:nth-child(2) td:first-child"), "textContent", value));
         }
         element = driver.findElement(By.cssSelector("input[type='number']"));
         element.clear();
-        String value="0";
-        element.sendKeys(value);
+        element.sendKeys("0");
         element = driver.findElement(By.cssSelector("button[name='update_cart_item']"));
         element.click();
         wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//em[contains(text(), 'There are no items in your cart.')]")));
