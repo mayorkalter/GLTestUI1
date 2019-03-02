@@ -1,3 +1,5 @@
+package HomeWork3;
+
 import commonLibs.CommonFunc;
 import commonLibs.ConfigReader;
 import io.github.bonigarcia.wdm.WebDriverManager;

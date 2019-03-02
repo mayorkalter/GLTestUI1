@@ -1,13 +1,11 @@
+package HomeWork3;
+
 import org.apache.commons.io.FileUtils;
 import org.openqa.selenium.*;
 import org.openqa.selenium.support.events.WebDriverEventListener;
-import org.w3c.dom.TypeInfo;
 
-import javax.lang.model.type.ErrorType;
-import java.awt.*;
 import java.io.File;
 import java.io.IOException;
-import java.lang.reflect.Array;
 
 public class WebEventListener extends HW3_event implements WebDriverEventListener {
 

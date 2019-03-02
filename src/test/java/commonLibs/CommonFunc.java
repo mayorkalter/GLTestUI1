@@ -4,12 +4,9 @@ import org.junit.Assert;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
-import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.support.ui.ExpectedConditions;
-import org.openqa.selenium.support.ui.Select;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
-import java.util.ArrayList;
 import java.util.List;
 
 public class CommonFunc {
@@ -66,12 +63,6 @@ public class CommonFunc {
                     Assert.assertEquals(driver.findElement(By.cssSelector("table[class='dataTable rounded-corners'] tbody tr:nth-child(2) td:first-child")).getAttribute("textContent"),value);
                 }
                 else if(Acount==0&&j<sizeOfList-1){
-//alternative
-//                    try {
-//                        Thread.sleep(500);
-//                    } catch(InterruptedException ex) {}
-//                    String codeExist=driver.findElements(By.cssSelector("table[class='dataTable rounded-corners'] tbody tr:nth-child(2) td:nth-child(3)")).toString();
-//                    Assert.assertNotEquals(codeExist,code);
                     wait.until(ExpectedConditions.attributeContains(By.cssSelector
                             ("table[class='dataTable rounded-corners'] tbody tr:nth-child(2) td:nth-child(2)"),
                             "textContent", nextName));
@@ -89,11 +80,8 @@ public class CommonFunc {
 
     public void addCategory(String name, String code, String photo, String amount , WebDriver driver){
         ConfigReader configReader=new ConfigReader();
-        //WebDriverWait wait = new WebDriverWait(driver, 10);
-        //wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath()));
         element = driver.findElement(By.cssSelector("a[href='http://localhost/litecart/admin/?app=catalog&doc=catalog']"));
         element.click();
-        //href="http://localhost/litecart/admin/?category_id=0&app=catalog&doc=edit_product"
         element = driver.findElement(By.cssSelector("a[href='http://localhost/litecart/admin/?category_id=0&app=catalog&doc=edit_product']"));
         element.click();
         element = driver.findElement(By.cssSelector("input[name='status'][value='1']"));
